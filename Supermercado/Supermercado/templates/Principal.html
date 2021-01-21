@@ -1,0 +1,72 @@
+
+{% extends 'Plantilla_Marco.html' %}
+
+
+{% block content %}
+	
+	{% load static %}
+	<style>
+
+		#Espacio_Articulo{
+			background-color: #f8f8f8;
+		}	
+
+		#Marco_Producto{
+			display: inline-block;	
+			width:22%;
+			margin: 0.3% 0%;
+			overflow:hidden;
+			border:1px solid #ebebeb;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			font-family: arial;
+			font-size: 92.5%;
+		}
+
+		#Imagen_Producto{
+			width:93%;
+			height: 100%;
+			margin-top: 3%;
+		}
+
+
+
+	</style>
+
+	<div id=Espacio_Articulo>
+	<br>
+
+			{% for producto in Productos %}
+				<div id= Marco_Producto>
+
+					<img src="{% static producto.Imagen_Articulo %}" id=Imagen_Producto>
+					
+					<p>
+						{{producto.Nombre_Comercial}}
+						<br>
+						<label style="font-size: 140%;">Arg ${{producto.Precio}}</label>
+						<br>
+						Marca: {{producto.Marca}}
+						<br>
+						Disponibles: {{producto.Cantidad}}
+						<br>
+						<a href="/Informacion_Producto/<{{producto.Nombre_Comercial}}>" style="font-size: 110%;">Mas Informacion</a>
+					</p>
+
+				</div>
+			{% endfor %}
+	<br>
+	</div>
+
+	<div>
+		{% for pagina in Cantidad_Paginas %}
+			<div id=Marco_Producto style="width:3%;margin-top: 0.9%;">
+				<form action= '/Inicio/<{{pagina}}>' >
+					<input type="submit" value="{{pagina}}" id=Marco_Producto style="width:100%;height: 32px">
+				</form>
+			</div>
+		{% endfor %}
+	</div>
+	
+
+{% endblock %}

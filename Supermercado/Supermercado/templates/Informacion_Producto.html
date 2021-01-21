@@ -1,0 +1,48 @@
+{% extends 'Plantilla_Marco.html' %}
+
+{% block content %}
+<style>
+	#Espacio_Articulo{
+			background-color: #f8f8f8;
+	}	
+	#Marco_Producto{
+	display: inline-block;	
+	width:28%;
+	margin: 0.3% 0%;
+	overflow:hidden;
+	border:1px solid #ebebeb;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	
+	font-family: arial;
+	font-size: 92.5%;
+	}
+	#Imagen_Producto{
+		width:93%;
+		height: 100%;
+		margin-top: 3%;
+	}
+</style>
+	
+	{% load static %}
+
+	<div id=Espacio_Articulo>
+		<br>
+		<div id=Marco_Producto> 
+			<img src="{% static Articulo.Imagen_Articulo %}" id=Imagen_Producto>
+			<label style="font-size: 150%;">{{Articulo.Nombre_Comercial}}</label>
+			<br>
+			<label style="font-size: 140%;">Arg ${{Articulo.Precio}}</label>
+			<br>
+			Marca: {{Articulo.Marca}}
+			<br>
+			Categoria: {{Articulo.Categoria}}
+			<br>
+			Disponibles: {{Articulo.Cantidad}}
+			<br>
+			Descripcion: Es muy bueno yo que tu me llevo todos los disponibles
+			,que dices?
+		</div>
+		<br>
+	</id>
+{% endblock %}
